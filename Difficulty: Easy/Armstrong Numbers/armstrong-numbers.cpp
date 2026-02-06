@@ -2,19 +2,14 @@
 class Solution {
   public:
     bool armstrongNumber(int n) {
-        int a=n,b=n;
-        int digi=0;
+        int a=n;
         int sum=0;
-        while(n!=0){
-            digi++;
-            n/=10;
-        }
         while(a!=0){
             int d=a%10;
-            sum+=pow(d,digi);
+            sum+=pow(d,3);
             a/=10;
         }
-        if(sum==b)
+        if(sum==n)
             return true;
         else 
             return false;
