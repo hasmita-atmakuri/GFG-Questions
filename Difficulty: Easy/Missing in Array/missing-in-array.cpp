@@ -1,17 +1,14 @@
 class Solution {
   public:
     int missingNum(vector<int>& arr) {
-        // code here
-        
-        long long s1 = 0;
-
-        int n=arr.size();
-        long long s = ((long long)(n+1)*(n+2))/2;
-        for(int i=0;i<n;i++){
-            s1+=arr[i];
-        }
+        int n=arr.size()+1;
         int ans=0;
-        ans=s-s1;
+        for(int i=1;i<=n;i++){
+            ans^=i;
+        }
+        for(int i=0;i<arr.size();i++){
+            ans^=arr[i];
+        }
         return ans;
     }
 };
